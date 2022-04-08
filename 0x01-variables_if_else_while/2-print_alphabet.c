@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 /**
  * main - entry point
  * Description: print alphabets
@@ -13,6 +14,7 @@ int main(void)
 		putchar(c);
 		c++;
 	}
+
 	putchar('\n');
 	return (0);
 }
