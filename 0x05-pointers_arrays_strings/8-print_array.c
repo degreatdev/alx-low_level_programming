@@ -1,25 +1,25 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- *print_array - prints n elements of an array of integers
- *@a: A pointer to an int that will be updated/ changed
- *@n: return value n
- *Return: void which ,means our answer is correct
+ *_strcpy - copies the string pointed to by src
+ *@dest: A pointer to a char that will be changed
+ *@src: A pointer to a char that will be changed
+ *Return: dest
  */
 
-void print_array(int *a, int n)
+char *_strcpy(char *dest, char *src)
 {
+
 int i;
+
 i = 0;
-while (i < n)
-{
-printf("%d", a[i]);
 
-if (i < n - 1)
-{														printf(", ");
-}
-i++;
+while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 
-printf("\n");
+	return (dest);
+
 }
