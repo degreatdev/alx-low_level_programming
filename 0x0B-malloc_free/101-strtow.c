@@ -38,7 +38,6 @@ char **strtow(char *str)
 char **p, *temp;
 int i, k = 0, len = 0, words, c = 0, start, end;
 
-
 while (*(str + len))
 len++;
 words = word_count(str);
@@ -48,7 +47,6 @@ return (NULL);
 p = (char **) malloc(sizeof(char *) * (words + 1));
 if (p == NULL)
 return (NULL);
-
 
 for (i = 0; i <= len; i++)
 {
@@ -61,7 +59,6 @@ temp = (char *) malloc(sizeof(char) * (c + 1));
 
 if (temp == NULL)
 return (NULL);
-
 
 while (start < end)
 *temp++ = str[start++];
