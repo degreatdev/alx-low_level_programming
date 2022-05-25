@@ -1,1 +1,1 @@
-Singly list task
+Singly linked project
