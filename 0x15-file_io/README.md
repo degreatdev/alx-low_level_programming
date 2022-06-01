@@ -1,1 +1,1 @@
-For input and output
+For input and output for c
