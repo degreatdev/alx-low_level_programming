@@ -8,25 +8,36 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-    ssize_t file, fread, fwrite;
-    char *totalSize;
+	ssize_t nletters;
+	int file;
+	char *text;
 
-    totalSize = malloc(sizeof(char) * letters);
-    if (totalSize == NULL)
-        return (0);
-    if (filename == NULL)
-        return (0);
-
-    file = open(filename, O_RDONLY);
-    if (file == -1)
-        return (0);
-    fread = read(file, totalSize, letters);
-    if (fread == -1)
-        return (0);
-    fwrite = write(STDOUT_FILENO, totalSize, fread);
-    if (fwrite == -1)
-        return (0);
-    close(file);
-    free(totalSize);
-    return (fwrite);
+	if (!filename)
+		return (0);
+	text = malloc(sizeof(char) * letters + 1);
+	if (text == NULL)
+		return (0);
+	file = open(filename, O_RDONLY);
+	if (file == -1)
+	{
+		free(text);
+		return (0);
+	}
+	nletters = read(file, text, sizeof(char) * letters);
+	if (nletters == -1)
+	{
+		free(text);
+		close(file);
+		return (0);
+	}
+	nletters = write(STDOUT_FILENO, text, nletters);
+	if (nletters == -1)
+	{
+		free(text);
+		close(file);
+		return (0);
+	}
+	free(text);
+	close(file);
+	return (nletters);
 }
